@@ -6,6 +6,6 @@ class CalculadoraDeDescontos
 {
     public function calculaDescontos(Orcamento $orcamento): float
     {
-        return $orcamento->quantidadeDeItems > 5 ? $orcamento->valor * 0.1 : $orcamento->valor * 1;
+        return $orcamento->quantidadeDeItems > 5 ? $orcamento->valor * 0.1 : 0;
     }
 }
