@@ -8,6 +8,6 @@ class Icms implements ImpostoInterface
 {
     public function calculaImposto(Orcamento $orcamento): float
     {
-        return $orcamento->valor * 0.1;
+        return $orcamento->valor * 0.06;
     }
 }

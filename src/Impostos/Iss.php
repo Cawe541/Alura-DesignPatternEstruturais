@@ -4,10 +4,10 @@ namespace Alura\DesignPattern\Impostos;
 
 use Alura\DesignPattern\Orcamento;
 
-class ISS implements Imposto
+class Iss implements ImpostoInterface
 {
     public function calculaImposto(Orcamento $orcamento): float
     {
-        return $orcamento->valor * 0.06;
+        return $orcamento->valor * 0.1;
     }
 }
