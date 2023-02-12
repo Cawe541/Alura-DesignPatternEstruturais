@@ -10,6 +10,6 @@ require 'vendor/autoload.php';
 
 $calculadora = new CalculadoraDeDescontos();
 $orcamento = new Orcamento();
-$orcamento->valor = 200;
-$orcamento->quantidadeDeItems = 5;
+$orcamento->valor = 700;
+$orcamento->quantidadeDeItems = 7;
 echo $calculadora->calculaDescontos($orcamento);
