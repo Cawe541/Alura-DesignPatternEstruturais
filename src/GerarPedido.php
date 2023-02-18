@@ -17,6 +17,21 @@ class GerarPedido implements CommandInterface
         $this->nomeCliente = $nomeCliente;
     }
 
+    public function getValorOrcamento(): float
+    {
+        return $this->valorOrcamento;
+    }
+
+    public function getNumeroItens(): int
+    {
+        return $this->numeroItens;
+    }
+
+    public function getNomeCliente(): string
+    {
+        return $this->nomeCliente;
+    }
+
     public function execute()
     {
         $orcamento = new Orcamento();
