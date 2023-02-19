@@ -3,10 +3,11 @@
 namespace Alura\DesignPattern\AcoesAoGerarPedido;
 
 use Alura\DesignPattern\Pedido;
+use SplObserver;
 
-class CriarPedidoNoBanco implements AcaoAposGerarPedido
+class CriarPedidoNoBanco implements SplObserver
 {
-    public function executaAcao(Pedido $pedido): void
+    public function update(\SplSubject $pedido): void
     {
         echo "Cria pedido no banco de dados" . PHP_EOL;
     }
