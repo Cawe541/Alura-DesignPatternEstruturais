@@ -2,22 +2,16 @@
 
 namespace Alura\DesignPattern;
 
-use Alura\DesignPattern\AcoesAoGerarPedido\AcaoAposGerarPedido;
-use Alura\DesignPattern\AcoesAoGerarPedido\CriarPedidoNoBanco;
-use Alura\DesignPattern\AcoesAoGerarPedido\EnviarPedidoPorEmail;
-use Alura\DesignPattern\AcoesAoGerarPedido\LogGerarPedido;
+use SplObserver;
+use SplSubject;
 
-class GerarPedidoHandler
+class GerarPedidoHandler implements SplSubject
 {
     private array $acoesAoGerarPedido = [];
+    public Pedido $pedido;
 
     public function __construct(/*PedidoRepository, MailService*/)
     {
-    }
-
-    public function adicionarAcaoAoGerarPedido(AcaoAposGerarPedido $acao)
-    {
-        $this->acoesAoGerarPedido[] = $acao;
     }
 
     public function execute(GerarPedido $gerarpedido)
@@ -31,8 +25,24 @@ class GerarPedidoHandler
         $pedido->dataFinalizacao = new \DateTimeImmutable();
         $pedido->orcamento = $orcamento;
 
+        $this->pedido = $pedido;
+        $this->notify();
+    }
+
+    public function attach(SplObserver $observer): void
+    {
+        $this->acoesAoGerarPedido[] = $observer;
+    }
+
+    public function detach(SplObserver $observer): void
+    {
+        //
+    }
+
+    public function notify(): void
+    {
         foreach ($this->acoesAoGerarPedido as $acao) {
-            $acao->executaAcao($pedido);
+            $acao->update($this);
         }
     }
 }
