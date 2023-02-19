@@ -7,7 +7,7 @@ use Alura\DesignPattern\Pedido;
 class PedidoExportado implements ConteudoExportadoInterface
 {
 
-    private function __construct(private Pedido $pedido)
+    public function __construct(private Pedido $pedido)
     {
     }
 

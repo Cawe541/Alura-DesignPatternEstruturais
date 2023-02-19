@@ -7,7 +7,7 @@ use Alura\DesignPattern\Orcamento;
 class OrcamentoExportado implements ConteudoExportadoInterface
 {
 
-    private function __construct(private Orcamento $orcamento)
+    public function __construct(private Orcamento $orcamento)
     {
     }
 
