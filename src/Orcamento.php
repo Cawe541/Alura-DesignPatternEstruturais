@@ -5,7 +5,7 @@ namespace Alura\DesignPattern;
 use Alura\DesignPattern\EstadosOrcamento\EmAprovacao;
 use Alura\DesignPattern\EstadosOrcamento\EstadoOrcamento;
 
-class Orcamento
+class Orcamento implements Orcavel
 {
     private array $itens;
     public EstadoOrcamento $estadoAtual;
@@ -36,13 +36,13 @@ class Orcamento
         $this->estadoAtual->finaliza($this);
     }
 
-    public function adicionaItem(ItemOrcamento $item)
+    public function adicionaItem(Orcavel $item)
     {
         $this->itens[] = $item;
     }
 
     public function valor(): float
     {
-        return array_reduce($this->itens, fn (float $valorAcumulado, ItemOrcamento $itemAtual) => $valorAcumulado + $itemAtual->valor, 0);
+        return array_reduce($this->itens, fn (float $valorAcumulado, Orcavel $itemAtual) => $valorAcumulado + $itemAtual->valor(), 0);
     }
 }

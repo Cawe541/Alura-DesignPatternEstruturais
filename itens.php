@@ -6,6 +6,11 @@ use Alura\DesignPattern\{Orcamento, ItemOrcamento};
 
 $orcamento = new Orcamento();
 $orcamento->adicionaItem(new ItemOrcamento(500));
-$orcamento->adicionaItem(new ItemOrcamento(300));
+$orcamentoAntigo = new Orcamento();
+$orcamentoAntigo->adicionaItem(new ItemOrcamento(300));
+$orcamentoMaisAntigoAinda = new Orcamento();
+$orcamentoMaisAntigoAinda->adicionaItem(new ItemOrcamento(200));
+$orcamentoAntigo->adicionaItem($orcamentoMaisAntigoAinda);
+$orcamento->adicionaItem($orcamentoAntigo);
 
 echo $orcamento->valor();
