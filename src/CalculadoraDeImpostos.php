@@ -2,11 +2,11 @@
 
 namespace Alura\DesignPattern;
 
-use Alura\DesignPattern\Impostos\ImpostoInterface;
+use Alura\DesignPattern\Impostos\Imposto;
 
 class CalculadoraDeImpostos
 {
-    public function calcula(Orcamento $orcamento, ImpostoInterface $imposto): float
+    public function calcula(Orcamento $orcamento, Imposto $imposto): float
     {
        return $imposto->calculaImposto($orcamento);
     }
