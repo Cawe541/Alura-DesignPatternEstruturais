@@ -13,4 +13,5 @@ $orcamentoMaisAntigoAinda->adicionaItem(new ItemOrcamento(200));
 $orcamentoAntigo->adicionaItem($orcamentoMaisAntigoAinda);
 $orcamento->adicionaItem($orcamentoAntigo);
 
-echo $orcamento->valor();
+echo $orcamento->valor() . PHP_EOL;
+echo $orcamento->valor() . PHP_EOL;
